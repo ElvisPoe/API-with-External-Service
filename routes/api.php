@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Resources\ArticleResource;
-use App\Models\Articles;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('articles',ArticlesController::class);
 
-Route::get('/articles', function () {
-    return ArticleResource::collection(Articles::all());
-});
+Route::resource('comments',CommentsController::class);

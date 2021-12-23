@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Articles;
+use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CommentsFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class CommentsFactory extends Factory
         return [
             'content' => $this->faker->paragraph(),
             'owner' => $this->faker->name(),
-            'article' => Articles::inRandomOrder()->first()->id,
+            'article_id' => Article::inRandomOrder()->first()->id,
         ];
     }
 }

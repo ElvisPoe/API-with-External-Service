@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // We could place this in .env file. But .env file in gitignored. e.g. 'token' => env('EXT_SERVICE_TOKEN')
+    'ext_service' => [
+        'base_url' => 'https://jsonplaceholder.typicode.com',
+        'token' => 'my-unique_token-12',
+        'accept' => 'application/vnd.api+json',
+    ]
+
 ];

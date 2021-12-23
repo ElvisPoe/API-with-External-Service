@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ArticleResource extends JsonResource
+class CommentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,8 @@ class ArticleResource extends JsonResource
      */
     public function toArray($request)
     {
-        // I dont think that this is necessary. Just to return the data with a specific type.
         return [
-            'type' => 'article',
-            'attributes' => parent::toArray($request)
+            parent::toArray($request)
         ];
     }
 }

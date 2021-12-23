@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Articles extends Model
+class Article extends Model
 {
     use HasFactory;
 
@@ -14,4 +14,15 @@ class Articles extends Model
         'World' => 'World',
         'Nature' => 'Nature'
     ];
+
+    protected $fillable = [
+        'title',
+        'content',
+        'creation_date',
+        'category',
+    ];
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

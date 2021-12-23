@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\Articles::factory(100)->create();
-         \App\Models\Comments::factory(25)->create();
+         Article::factory(100)->create();
+         Comment::factory(1000)->create();
     }
 }

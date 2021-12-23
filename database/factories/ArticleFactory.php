@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Articles;
+use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ArticlesFactory extends Factory
+class ArticleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,9 +16,9 @@ class ArticlesFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'content' => $this->faker->paragraph(5),
+            'content' => $this->faker->paragraph(2),
             'creation_date' => $this->faker->date(),
-            'category' => array_rand(Articles::CATEGORIES),
+            'category' => array_rand(Article::CATEGORIES),
         ];
     }
 }

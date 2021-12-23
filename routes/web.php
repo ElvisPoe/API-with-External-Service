@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Resources\ArticleResource;
-use App\Models\Articles;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/articles', function () {
-    return ArticleResource::collection(Articles::all());
-});
+Route::resource('articles',ArticlesController::class);
+
+Route::resource('comments',CommentsController::class);
