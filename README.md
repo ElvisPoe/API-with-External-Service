@@ -6,19 +6,18 @@
 git clone https://github.com/ElvisPoe/API.git
 
 <h3>2. Install all the dependencies</h3>
-1. First run 'composer install'
-2. Get .env file and set up the database with your credentials.
-   ( I didn't git the .env file for security reasons )
-2. Run 'php artisan serve'
+<p>1. First run 'composer install'</p>
+<p>2. Get .env file and set up the database with your credentials.(I didn't git the .env file for security reasons )</p>
+<p>3. Run 'php artisan serve'</p>
 
 <h3>3. Migrate database and seed with Articles and Comments</h3>
-php artisan migrate --seed
-<p>I generate about 100 Articles and 1000 Comments.</p>
-<p>Seeding with 1000 Articles and 10.000 (1000*10) comments took too much time to complete the command. You can still change it in database\seeders\DatabaseSeeder.php</p>
+Run 'php artisan migrate --seed'
+<p>I generated about 100 Articles and 1000 Comments.</p>
+<p>* Seeding with 1000 Articles and 10.000 (1000*10) comments took too much time to complete the command. You can still change it in database\seeders\DatabaseSeeder.php</p>
 
 <h3>4. App/Http/Controllers/API</h3>
-1. ArticlesController Manages the Article resources (CRUD).
-2. CommentsController Manages the Comment resources (CRUD).
+<p>1. ArticlesController Manages the Article resources (CRUD).</p>
+<p>2. CommentsController Manages the Comment resources (CRUD).</p>
 
 <h3>5. App/Http/Middleware/VerifyCsrfToken</h3>
 1. Exclude Articles and Comments, so we can play around with the API.
@@ -27,13 +26,11 @@ php artisan migrate --seed
 1. Custom Requests. For Validating the incoming Store/Update requests.
 
 <h3>7. App/Http/Resources</h3>
-1. Resources to return.
+1. Resources to return. In case we need the data in a specific format.
 
 <h3>8. App/Services</h3>
-1. ArticleServices. Here we Create / Update / Delete the Articles on the external api.
-   We call each service in ArticlesController functions.
-   To be honest, I've never worked on an external service like this before.
-   It may not be the best aproach.
+1. ArticleServices. Here we Create / Update / Delete the Articles on the external service.
+   We call each service method in ArticlesController functions.
 
 <h3>9. config/services.php</h3>
 1. Here I stored some necessary info about the External Service.
