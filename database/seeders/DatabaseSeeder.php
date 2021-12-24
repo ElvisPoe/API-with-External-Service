@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         Article::factory(100)->create();
+         Article::factory(100)->create(); // Populate database with 100 Articles. 1000 articles and 10000 comments takes too much time to seed.
          Comment::factory(1000)->create();
     }
 }

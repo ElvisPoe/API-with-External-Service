@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Http\Requests\UpdateCommentRequest;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Requests\StoreCommentRequest;
 use App\Http\Resources\CommentResource;
+use App\Http\Requests\CommentRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Comment;
 
 class CommentsController extends Controller
@@ -23,10 +23,10 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCommentRequest  $request
+     * @param  \App\Http\Requests\CommentRequest  $request
      * @return CommentResource
      */
-    public function store(StoreCommentRequest $request)
+    public function store(CommentRequest $request)
     {
         $comment = Comment::create($request->all());
 
@@ -41,21 +41,21 @@ class CommentsController extends Controller
      */
     public function show(Comment $comment)
     {
-        return new CommentResource(Comment::find($comment));
+        return new CommentResource(Comment::find($comment->id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCommentRequest  $request
+     * @param  \App\Http\Requests\CommentRequest  $request
      * @param  \App\Models\Comment  $comment
      * @return CommentResource
      */
-    public function update(UpdateCommentRequest $request, Comment $comment)
+    public function update(CommentRequest $request, Comment $comment)
     {
         $comment->update($request->all());
 
-        return new CommentResource(Comment::find($comment));
+        return new CommentResource(Comment::find($comment->id));
     }
 
     /**

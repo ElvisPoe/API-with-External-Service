@@ -15,6 +15,8 @@ class Article extends Model
         'Nature' => 'Nature'
     ];
 
+    protected $with = ['comments'];
+
     protected $fillable = [
         'title',
         'content',

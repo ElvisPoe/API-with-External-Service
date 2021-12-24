@@ -30,7 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    // We could place this in .env file. But .env file in gitignored. e.g. 'token' => env('EXT_SERVICE_TOKEN')
+    // We could place this in .env file. But .env file in gitignored.
+    // e.g. 'token' => env('EXT_SERVICE_TOKEN')
     'ext_service' => [
         'base_url' => 'https://lapi.external-services.com/v2/',
         'token' => 'my-unique_token-12',

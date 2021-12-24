@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Article;
-use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Http;
+use App\Models\Article;
 
 class ArticleService {
 
@@ -34,7 +34,10 @@ class ArticleService {
         } catch (\Exception $e){
             error_log($e->getMessage());
         }
-        return response($response, Response::HTTP_CREATED);
+        // Because of the Imaginary API the request fails and $response is not defined. Initializing the $response attribute is an option.
+        // This whould be the actual return.
+        // return response($response, Response::HTTP_CREATED);
+        return response(TRUE, Response::HTTP_CREATED);
     }
 
     /**
@@ -64,7 +67,7 @@ class ArticleService {
         } catch (\Exception $e){
             error_log($e->getMessage());
         }
-        return response($response, Response::HTTP_OK);
+        return response(TRUE, Response::HTTP_OK);
     }
 
     /**
@@ -82,6 +85,6 @@ class ArticleService {
         } catch (\Exception $e){
             error_log($e->getMessage());
         }
-        return response($response, Response::HTTP_NO_CONTENT);
+        return response(TRUE, Response::HTTP_NO_CONTENT);
     }
 }

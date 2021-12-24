@@ -18,6 +18,7 @@ class CommentFactory extends Factory
             'content' => $this->faker->paragraph(),
             'owner' => $this->faker->name(),
             'article_id' => Article::inRandomOrder()->first()->id,
+            // For more realistic data, every comment is assigned to a random article so there is a different number of comments for each article.
         ];
     }
 }

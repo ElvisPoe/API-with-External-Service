@@ -15,9 +15,6 @@ class ArticleResource extends JsonResource
     public function toArray($request)
     {
         // I dont think that this is necessary. Just to return the data with a specific type.
-        return [
-            'type' => 'article',
-            'attributes' => parent::toArray($request)
-        ];
+        return parent::toArray($request);
     }
 }

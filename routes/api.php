@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ArticlesController;
-use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\API\ArticlesController;
+use App\Http\Controllers\API\CommentsController;
 use Illuminate\Support\Facades\Route;
 
 /*

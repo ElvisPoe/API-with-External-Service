@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\Article;
 
-class StoreArticleRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,6 +34,11 @@ class StoreArticleRequest extends FormRequest
             ],
             'creation_date' => [
                 'required',
+                'date_format:Y-m-d',
+            ],
+            'category' => [
+                'nullable',
+                Rule::in(Article::CATEGORIES)
             ]
         ];
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Http\Requests\StoreArticleRequest;
-use App\Http\Requests\UpdateArticleRequest;
-use App\Http\Resources\ArticleResource;
-use App\Models\Article;
-use App\Services\ArticleService;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\ArticleResource;
+use App\Http\Requests\ArticleRequest;
+use App\Http\Controllers\Controller;
+use App\Services\ArticleService;
+use App\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -24,10 +24,10 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreArticleRequest  $request
+     * @param  \App\Http\Requests\ArticleRequest  $request
      * @return ArticleResource
      */
-    public function store(StoreArticleRequest $request, ArticleService $articleService)
+    public function store(ArticleRequest $request, ArticleService $articleService)
     {
         $article = Article::create($request->all());
 
@@ -45,24 +45,24 @@ class ArticlesController extends Controller
      */
     public function show(Article $article)
     {
-        return new ArticleResource(Article::find($article));
+        return new ArticleResource(Article::find($article->id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateArticleRequest  $request
+     * @param  \App\Http\Requests\ArticleRequest  $request
      * @param  \App\Models\Article  $article
      * @return ArticleResource
      */
-    public function update(UpdateArticleRequest $request, Article $article, ArticleService $articleService)
+    public function update(ArticleRequest $request, Article $article, ArticleService $articleService)
     {
         $article->update($request->all());
 
         // Update in external service too.
         $articleService->update($article);
 
-        return new ArticleResource(Article::find($article));
+        return new ArticleResource(Article::find($article->id));
     }
 
     /**
